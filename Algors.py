@@ -1,3 +1,25 @@
+class Stack():
+
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return self.items == []
+    
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        return self.items.pop()
+
+    def get_stack(self):
+        return self.items
+    
+    def peek(self):
+        if (len(self.items) != 0):
+            return self.items[-1]
+
+
 class Algors:
 
     def __init__(self):
@@ -41,6 +63,12 @@ class Algors:
 
 
 
-test = Algors()
-test.insertion([3,10,5,1,7], acc = False)
-print(test.list_sorted)
+test = Stack()
+
+test.push("Alpha")
+test.push(100)
+test.push("banana")
+test.push(2500)
+print(test.is_empty())
+while(not(test.is_empty())):
+    print(test.pop())

@@ -19,6 +19,12 @@ class Stack():
         if (len(self.items) != 0):
             return self.items[-1]
 
+    def is_empty(self):
+        if(len(self.items) <= 0):
+            return True
+        else:
+            return False
+
 class node:
     def __init__(self, dataval = None):
         self.dataval = dataval
@@ -121,17 +127,8 @@ class Algors:
 
 
 
-test = linkedList()
-test.headval = node("Alpha")
-a1 = node("Beta")
-a2 = node("charlie")
-a3 = node("delta")
-test.headval.next = a1
-
-a1.next = a2
-a2.next = a3
-test.atEnd("Intervel")
-test.inBetwwen(a2, "Test")
-test.printLinked()
-test.removeNode("Alpha")
-test.printLinked()
+if __name__ == "__main__":
+    test = Algors()
+    #print(test.is_empty())
+    print(test.parenthesis_Balance("{{"))
+    #test.parenthesis_Balance("{()}")

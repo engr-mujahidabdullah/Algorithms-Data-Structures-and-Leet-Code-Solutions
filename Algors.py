@@ -20,7 +20,7 @@ class Stack():
             return self.items[-1]
 
     def is_empty(self):
-        if(len(self.items) <= 0):
+        if(len(self.items) == 0):
             return True
         else:
             return False
@@ -125,10 +125,42 @@ class Algors:
         
         self.list_sorted = list_s
 
+    def is_closed(self, p1, p2):
+        if(p1 == '{' and p2 == '}'):
+            return True
+        elif(p1 == '(' and p2 == ')'):
+            return True
+        elif(p1 == '[' and p2 == ']'):
+            return True
+        else:
+            return False
 
+    def parenthesis_Balance(self, paren):
+        balanced = True
+        s = Stack()
+
+        if(len(paren) % 2 != 0):
+            print('Parenthesis are not banaced')
+            balanced = False
+            return balanced
+        for i in range(len(paren)):
+            if( paren[i] in "[{(" ):
+                s.push(paren[i])
+            else:
+                if(s.is_empty() == True):
+                    balanced = False
+                else:
+                    top = s.pop()
+                    if(self.is_closed(top, paren[i]) == False):
+                        balanced = False
+        if(s.is_empty and balanced):
+            return True
+        else:
+            return False
+                
 
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())
-    print(test.parenthesis_Balance("{{"))
+    print(test.parenthesis_Balance("[](){()}"))
     #test.parenthesis_Balance("{()}")

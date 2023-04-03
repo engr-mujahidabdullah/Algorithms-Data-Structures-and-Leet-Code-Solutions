@@ -19,6 +19,27 @@ class Stack():
         if (len(self.items) != 0):
             return self.items[-1]
 
+class node:
+    def __init__(self, dataval = None):
+        self.dataval = dataval
+        self.next = None
+
+class linkedList:
+    def __init__(self):
+        self.headval = None
+
+    def atStart(self, val):
+        NewNode = node(val)
+
+    def printLinked(self):
+        printval = self.headval
+        while printval is not None:
+            print(printval.dataval)
+            printval = printval.next
+    
+    def updateLinked(self, NewNode):
+        NewNode.nextval = self.headval
+        self.headval = NewNode
 
 class Algors:
 
@@ -63,12 +84,13 @@ class Algors:
 
 
 
-test = Stack()
+test = linkedList()
+test.headval = node("Alpha")
+a1 = node("Beta")
+a2 = node("charlie")
+a3 = node("delta")
+test.headval.next = a1
+a1.next = a2
+a2.next = a3
 
-test.push("Alpha")
-test.push(100)
-test.push("banana")
-test.push(2500)
-print(test.is_empty())
-while(not(test.is_empty())):
-    print(test.pop())
+test.printLinked()

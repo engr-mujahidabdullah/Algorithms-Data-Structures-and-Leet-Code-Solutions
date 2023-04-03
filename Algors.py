@@ -41,6 +41,43 @@ class linkedList:
         NewNode.nextval = self.headval
         self.headval = NewNode
 
+    def atEnd(self, val):
+        NewNode = node(val)
+        if(self.headval is None):
+            self.headval = NewNode
+            return
+        last = self.headval
+        while(last.next):
+            last = last.next
+        last.next = NewNode
+
+    def inBetwwen(self, bwNode, val):
+        if(bwNode is None):
+            print("The requested Node is not valid")
+            return
+        NewNode = node(val)
+        NewNode.next = bwNode.next
+        bwNode.next = NewNode
+
+    def removeNode(self, Node):
+        Head = self.headval
+        if(Head is not None):
+            if(Head.dataval == Node):
+                self.headval = Head.next
+                Head = None
+                return
+        while(Head is not None):
+            if(Head.dataval == Node):
+                break
+            prev = Head
+            Head  = Head.next
+        if(Head == None):
+            return
+
+        prev.next = Head.next
+        Head = None
+
+
 class Algors:
 
     def __init__(self):
@@ -90,7 +127,11 @@ a1 = node("Beta")
 a2 = node("charlie")
 a3 = node("delta")
 test.headval.next = a1
+
 a1.next = a2
 a2.next = a3
-
+test.atEnd("Intervel")
+test.inBetwwen(a2, "Test")
+test.printLinked()
+test.removeNode("Alpha")
 test.printLinked()

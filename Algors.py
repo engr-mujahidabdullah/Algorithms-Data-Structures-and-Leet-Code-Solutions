@@ -157,10 +157,20 @@ class Algors:
             return True
         else:
             return False
+    
+    def linearSearch(self, find, list_):
+        i = 0
+        while i in range(len(list_)):
+            if(find == list_[i]):
+                return i
+            i = i + 1
+        return False
+
+
                 
 
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())
-    print(test.parenthesis_Balance("[](){()}"))
+    print(test.linearSearch("a", "bfca"))
     #test.parenthesis_Balance("{()}")

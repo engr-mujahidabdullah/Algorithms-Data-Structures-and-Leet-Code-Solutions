@@ -124,6 +124,7 @@ class Algors:
                     j -= 1
         
         self.list_sorted = list_s
+        return list_s
 
     def is_closed(self, p1, p2):
         if(p1 == '{' and p2 == '}'):
@@ -166,11 +167,26 @@ class Algors:
             i = i + 1
         return False
 
+    def binarySearch(self, find, list_):
+        self.insertion(list_)
+        list_ = self.list_sorted
 
-                
+        left = 0
+        right = len(list_) - 1
+
+        while(left <= right):
+            mid = (left + right) // 2
+            if(find == list_[mid]):
+                return mid
+            elif(list_[mid] < find):
+                left = mid + 1
+            else:
+                right = mid + 1
+        return False
+
 
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())
-    print(test.linearSearch("a", "bfca"))
+    print(test.binarySearch(7, [1,2,7,4,5]))
     #test.parenthesis_Balance("{()}")

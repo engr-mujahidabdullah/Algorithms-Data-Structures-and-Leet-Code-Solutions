@@ -207,6 +207,20 @@ class Algors:
             i = i + 1
             ans = i * i
         return i - 1
+    
+    def plusOne(self, digits: list[int]) -> list[int]:
+        num = 0
+        num = sum(d * 10**i for i, d in enumerate(digits[::-1]))
+        num = num + 1
+        ans = []
+        con = str(num)
+        for i in con:
+            ans.append(int(i))
+        return ans
+
+    def convertTemperature(self, celsius: float) -> List[float]:
+        return[celsius + 273.15, celsius * 1.80 + 32.00]
+
 
 
 

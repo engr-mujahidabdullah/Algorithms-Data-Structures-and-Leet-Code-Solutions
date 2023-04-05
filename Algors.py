@@ -201,13 +201,17 @@ class Algors:
     def floorSqrt(self, x: int) -> int:
         if x < 2:
             return x
-        for i in range(1,x):
-            if(i * i >= x):
-                return i
+        i = 1
+        ans = 0
+        while(ans <= x):
+            i = i + 1
+            ans = i * i
+        return i - 1
+
 
 
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())
-    print(test.floorSqrt(1024))
+    print(test.floorSqrt(5))
     #test.parenthesis_Balance("{()}")

@@ -184,9 +184,30 @@ class Algors:
                 right = mid + 1
         return False
 
+    def Sqrt_bin(self, x: int) -> int:
+        if x < 2:
+            return x
+        start = 0
+        end = x
+        mid = (start + end)//2
+        while(start <= end):
+            if(mid*mid == x):
+                return mid
+            elif(mid * mid < x):
+                start = mid + 1
+            else:
+                end = mid - 1
+
+    def floorSqrt(self, x: int) -> int:
+        if x < 2:
+            return x
+        for i in range(1,x):
+            if(i * i >= x):
+                return i
+
 
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())
-    print(test.binarySearch(7, [1,2,7,4,5]))
+    print(test.floorSqrt(1024))
     #test.parenthesis_Balance("{()}")

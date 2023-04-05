@@ -218,8 +218,21 @@ class Algors:
             ans.append(int(i))
         return ans
 
-    def convertTemperature(self, celsius: float) -> List[float]:
+    def convertTemperature(self, celsius: float) -> list[float]:
         return[celsius + 273.15, celsius * 1.80 + 32.00]
+    
+    """
+    Given an array of integers nums, return the number of good pairs.
+    A pair (i, j) is called good if nums[i] == nums[j] and i < j.
+    """
+    def numIdenticalPairs(self, nums: list[int]) -> int:
+        pairs = 0
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if(nums[i] == nums[j] and i < j):
+                    pairs = pairs + 1
+        return pairs
+
 
 
 

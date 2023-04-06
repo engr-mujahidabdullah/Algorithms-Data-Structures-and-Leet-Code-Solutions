@@ -245,6 +245,27 @@ class Algors:
             out.append(nums[nums[i]])
         return out
 
+    """
+    You are given a positive integer num consisting only of digits 6 and 9.
+    Return the maximum number you can get by changing at most one digit 
+    (6 becomes 9, and 9 becomes 6).
+    """
+    def maximum69Number (self, num: int) -> int:
+        ans = num
+        num =str(num)
+        numx = num
+        for i in range(len(num)):
+            numx = num
+            if(num[i] == '6'):
+                numx = numx[:i] + '9' + numx[i+1:]
+                print(numx)
+            else:
+                numx = numx[:i] + '6' + numx[i+1:]
+            print(numx[i])
+            if(int(numx) >= ans):
+                ans = int(numx)
+        return ans
+
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())

@@ -266,8 +266,38 @@ class Algors:
                 ans = int(numx)
         return ans
 
+    """
+    Given a positive integer n, return the smallest positive integer that is a multiple of both 2 and n.
+    """
+    def smallestEvenMultiple(self, n: int) -> int:
+        mul = []
+        ans = 0
+        for i in range(1,n+1):
+            ans = i * 2
+            if(ans%n == 0 and ans%2 == 0):
+                mul.append(ans)
+        return(min(mul))
+
+    """
+    Given two positive integers a and b, return the number of common factors of a and b.
+    An integer x is a common factor of a and b if x divides both a and b.
+    """
+    def commonFactors(self, a: int, b: int) -> int:
+        count = 0
+        for i in range(1,min(a,b) + 1):
+            if(a%i == 0 and b%i == 0):
+                count = count + 1
+        return count
+
+    def commonFactorsList(self, a: int, b: int) -> list:
+        fact = []
+        for i in range(1,min(a,b) + 1):
+            if(a%i == 0 and b%i == 0):
+                fact.append(i)
+        return fact
+
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())
-    print(test.floorSqrt(5))
+    print(test.commonFactorsList(256, 512))
     #test.parenthesis_Balance("{()}")

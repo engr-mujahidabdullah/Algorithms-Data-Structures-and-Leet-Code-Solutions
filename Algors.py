@@ -302,18 +302,32 @@ class Algors:
                 return False
         return True
 
-    def countPrimes(self, n: int) -> int:
+    def listPrimes(self, n: int) -> list:
         if (n == 0 or n == 1):
             return 0
-        count = 0
+        primes = []
         for i in range(2,n):
             if(self.is_prime(i) == True):
-                count = count + 1
-        return count
+                primes.append(i)
+        return primes
+
+    def countPrimes(self, n: int) -> int:
+        if n <= 2:
+            return 0
+        is_prime = [True] * n
+        is_prime[0] = is_prime[1] = False
+        
+        for i in range(2, int(n**0.5)+1):
+            if is_prime[i]:
+                for j in range(i*i, n, i):
+                    is_prime[j] = False
+        
+        return sum(is_prime)
 
 
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())
-    print(test.commonFactorsList(256, 512))
-    #test.parenthesis_Balance("{()}")
+    print(test.countPrimes(256))
+    print(test.listPrimes(256))
+    #test.parenthesi    s_Balance("{()}")

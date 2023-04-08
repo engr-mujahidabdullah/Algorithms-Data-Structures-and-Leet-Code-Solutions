@@ -296,6 +296,22 @@ class Algors:
                 fact.append(i)
         return fact
 
+    def is_prime(self, n):
+        for i in range(2,int(n/2) + 1):
+            if(n%i == 0):
+                return False
+        return True
+
+    def countPrimes(self, n: int) -> int:
+        if (n == 0 or n == 1):
+            return 0
+        count = 0
+        for i in range(2,n):
+            if(self.is_prime(i) == True):
+                count = count + 1
+        return count
+
+
 if __name__ == "__main__":
     test = Algors()
     #print(test.is_empty())
